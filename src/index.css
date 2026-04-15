@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-brand-purple: #8b5cf6;
   --color-brand-purple-dark: #7c3aed;
@@ -20,6 +22,7 @@
     @apply bg-white text-slate-900 font-body antialiased transition-colors duration-300;
   }
 
+  /* Manual overrides for base elements */
   .dark body {
     @apply bg-brand-dark text-slate-100;
   }

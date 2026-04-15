@@ -2,7 +2,7 @@ export const projects = [
   {
     id: 1,
     title: "Identité Visuelle - Café Luna",
-    category: "Design",
+    category: "Miniatures/Affiches",
     image: "/assets/images/project1.webp",
     description: "Création du logo et de la charte graphique complète pour une nouvelle boutique de café artisanal.",
     tags: ["Logo", "Branding", "Illustrator"]
@@ -18,7 +18,7 @@ export const projects = [
   {
     id: 3,
     title: "Miniatures YouTube - Chaîne DIY",
-    category: "Design",
+    category: "Miniatures/Affiches",
     image: "/assets/images/project3.webp",
     description: "Design de miniatures performantes pour augmenter le taux de clic sur une chaîne YouTube de 500k abonnés.",
     tags: ["YouTube", "Social Design", "Photoshop"]
@@ -34,7 +34,7 @@ export const projects = [
   {
     id: 5,
     title: "Branding - Studio Architecture",
-    category: "Design",
+    category: "Miniatures/Affiches",
     image: "/assets/images/project5.webp",
     description: "Identité minimaliste et site web vitrine pour un cabinet d'architecture d'intérieur.",
     tags: ["Branding", "Minimal", "InDesign"]

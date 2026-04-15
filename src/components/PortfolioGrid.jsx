@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { projects } from '../data/portfolioData';
 import PortfolioCard from './PortfolioCard';
 
-const categories = ['Tous', 'Design', 'Social Media', 'Miniatures/Affiches'];
+const categories = ['Tous', 'Social Media', 'Miniatures/Affiches'];
 
 const PortfolioGrid = () => {
   const [activeCategory, setActiveCategory] = useState('Tous');
