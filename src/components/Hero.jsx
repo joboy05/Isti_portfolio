@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaInstagram, FaLinkedinIn, FaFacebookF } from 'react-icons/fa';
-import profileImg from '../assets/images/profile.png';
+import profileImg from '../assets/images/profile.jpeg';
 
 const roles = [
   "Gestion réseaux sociaux",
