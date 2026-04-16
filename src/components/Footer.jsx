@@ -8,100 +8,71 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-brand-dark text-white pt-24 pb-12 relative overflow-hidden">
-      {/* Decorative Gradient */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[300px] bg-brand-purple/5 blur-[120px] rounded-full pointer-events-none" />
-
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Big Call to Action */}
-        <div className="flex flex-col md:flex-row justify-between items-center mb-24 gap-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center md:text-left"
-          >
-            <h2 className="text-5xl md:text-7xl lg:text-8xl font-display font-extrabold tracking-tighter mb-4">
-              PRÊT À <span className="text-brand-purple italic">BRILLER ?</span>
-            </h2>
-            <p className="text-slate-500 text-lg md:text-xl">
-              Donnons vie à votre prochain grand projet.
+    <footer className="bg-brand-light dark:bg-brand-dark pt-32 pb-16 transition-colors duration-500 border-t border-slate-100 dark:border-white/5">
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24">
+          
+          {/* Brand Info */}
+          <div className="lg:col-span-2">
+            <img src="/logo_transparent.png" alt="ISTI Logo" className="h-12 w-auto mb-8 dark:invert" />
+            <p className="text-xl text-slate-500 dark:text-slate-400 max-w-sm mb-10 leading-relaxed font-light">
+              Donner une âme à votre présence digitale à travers un design intentionnel et une stratégie humaine.
             </p>
-          </motion.div>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={scrollToTop}
-            className="w-20 h-20 rounded-full border border-white/10 flex items-center justify-center text-xl hover:bg-brand-purple hover:border-brand-purple transition-all duration-500"
-          >
-            <FaArrowUp />
-          </motion.button>
-        </div>
-
-        {/* Info Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-24 border-t border-white/5 pt-16">
-          {/* Brand */}
-          <div className="space-y-6">
-            <div className="text-3xl font-display font-bold text-white tracking-tighter">
-              ISTI<span className="text-brand-coral">.</span>
-            </div>
-            <p className="text-slate-500 leading-relaxed max-w-xs">
-              Créatrice de contenus digitaux & graphiste passionnée par les marques qui osent.
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:bg-brand-purple hover:text-white transition-all">
-                <FaInstagram />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:bg-brand-purple hover:text-white transition-all">
-                <FaLinkedinIn />
-              </a>
-              <a href="https://facebook.com/IstiYR" className="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:bg-brand-purple hover:text-white transition-all">
-                <FaFacebookF />
-              </a>
+            <div className="flex space-x-6">
+              {[FaInstagram, FaLinkedinIn, FaFacebookF].map((Icon, i) => (
+                <motion.a 
+                  key={i}
+                  href="#" 
+                  whileHover={{ y: -5, color: '#8b5cf6' }}
+                  className="text-2xl text-slate-400 dark:text-slate-600 transition-all"
+                >
+                  <Icon />
+                </motion.a>
+              ))}
             </div>
           </div>
 
-          {/* Navigation */}
+          {/* Quick Links */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-widest text-white mb-8">Navigation</h4>
-            <ul className="space-y-4 text-slate-500">
-              <li><a href="#accueil" className="hover:text-brand-purple transition-colors">Accueil</a></li>
-              <li><a href="#services" className="hover:text-brand-purple transition-colors">Services</a></li>
-              <li><a href="#portfolio" className="hover:text-brand-purple transition-colors">Portfolio</a></li>
-              <li><a href="#propos" className="hover:text-brand-purple transition-colors">À propos</a></li>
+            <h4 className="text-[10px] font-black tracking-[0.4em] uppercase text-slate-400 mb-10">Navigation</h4>
+            <ul className="space-y-6">
+              {['Accueil', 'Services', 'Portfolio', 'À propos', 'Contact'].map((item) => (
+                <li key={item}>
+                  <a 
+                    href={`#${item.toLowerCase().replace(' ', '')}`} 
+                    className="text-lg font-bold text-slate-700 dark:text-slate-200 hover:text-brand-purple transition-colors"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Services */}
+          {/* Contact Details */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-widest text-white mb-8">Services</h4>
-            <ul className="space-y-4 text-slate-500">
-              <li>Social Media Management</li>
-              <li>Identité Visuelle</li>
-              <li>Création de Contenu</li>
-              <li>Stratégie Digitale</li>
-            </ul>
-          </div>
-
-          {/* Contact Fast */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-widest text-white mb-8">Contact</h4>
-            <div className="space-y-4 text-slate-500">
-              <p>hello@isti-creative.com</p>
-              <p>Lyon, France</p>
-              <p className="pt-4 text-brand-purple font-bold italic">Ouvert aux projets remote.</p>
-            </div>
+            <h4 className="text-[10px] font-black tracking-[0.4em] uppercase text-slate-400 mb-10">Lançons un projet</h4>
+            <p className="text-xl font-bold mb-4 dark:text-white">hello@isti.pro</p>
+            <p className="text-slate-500 dark:text-slate-400 leading-relaxed font-light">
+              Basée à Lyon.<br />
+              Disponible dans le monde entier en version remote.
+            </p>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6 pt-12 border-t border-white/5 text-slate-600 text-xs uppercase tracking-widest font-medium">
-          <p>© {new Date().getFullYear()} Isti Creative Studio. All Rights Reserved.</p>
-          <div className="flex gap-8">
-            <a href="#" className="hover:text-white transition-colors">Mentions Légales</a>
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-          </div>
+        <div className="flex flex-col md:flex-row justify-between items-center pt-16 border-t border-slate-100 dark:border-white/5">
+          <p className="text-slate-400 text-xs font-medium mb-8 md:mb-0">
+            © {new Date().getFullYear()} ISTI Creative Studio. Tous droits réservés.
+          </p>
+          
+          <motion.button
+            onClick={scrollToTop}
+            whileHover={{ scale: 1.1, backgroundColor: '#8b5cf6', color: '#fff' }}
+            className="w-14 h-14 rounded-full border border-slate-200 dark:border-white/10 flex items-center justify-center text-slate-400 transition-all shadow-xl"
+          >
+            <FaArrowUp />
+          </motion.button>
         </div>
       </div>
     </footer>

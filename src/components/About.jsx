@@ -1,59 +1,96 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import aboutImg from '../assets/images/profile.jpeg';
 
 const skills = [
-  'Photoshop', 'Illustrator', 'Premiere Pro', 'Canva', 
-  'CapCut', 'Notion', 'Meta Business Suite', 'Stratégie Sociale'
+  'Stratégie Social Media', 'Branding & Identité', 'Content Design', 'Direction Artistique',
+  'Copywriting', 'SEO & Analytics', 'Meta Business Suite', 'IA Créative'
 ];
 
 const About = () => {
+  const { scrollYProgress } = useScroll();
+  const scale = useTransform(scrollYProgress, [0.1, 0.4], [0.8, 1]);
+  const opacity = useTransform(scrollYProgress, [0.1, 0.3], [0, 1]);
+
   return (
-    <section id="propos" className="py-24 bg-white dark:bg-brand-dark transition-colors duration-300">
+    <section id="propos" className="py-40 bg-white dark:bg-brand-dark overflow-hidden transition-colors duration-500">
       <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Visual Placeholder for About */}
+        <div className="flex flex-col lg:flex-row items-center gap-24 lg:gap-32">
+          
+          {/* Friendly Image Side (Natural/Relaxed) */}
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
+            style={{ scale, opacity }}
+            initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-brand-purple/5 dark:bg-white/5 rounded-[40px] p-12 aspect-square flex items-center justify-center relative overflow-hidden"
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full lg:w-1/2 relative"
           >
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_30%_30%,rgba(139,92,246,0.1)_0%,transparent_70%)]" />
-            <div className="relative text-center">
-              <span className="text-8xl font-bold text-brand-purple/20 dark:text-white/10 font-display italic leading-none">Creative</span>
-              <p className="text-2xl font-display font-medium text-brand-dark dark:text-white mt-[-20px]">Depuis 2018</p>
-            </div>
-          </motion.div>
-
-          {/* Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl mb-8 leading-tight dark:text-white">
-              L'humain au cœur de <span className="text-brand-purple">votre identité digitale</span>
-            </h2>
-            <div className="space-y-6 text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-12">
-              <p>
-                Passionnée par l'intersection entre l'art et la communication, j'aide les entrepreneurs et les marques à raconter leur histoire de manière authentique et esthétique.
-              </p>
-              <p>
-                Ma philosophie est simple : chaque pixel et chaque post doit avoir une intention. Mon rôle est de transformer cette intention en résultats concrets, tout en préservant l'ADN de votre marque.
-              </p>
-            </div>
-
-            <div className="pt-8 border-t border-slate-100 dark:border-white/10">
-              <h4 className="text-sm font-bold uppercase tracking-widest text-slate-400 mb-6 font-body">Compétences Techniques</h4>
-              <div className="flex flex-wrap gap-3">
-                {skills.map(skill => (
-                  <span key={skill} className="px-5 py-2 bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 rounded-full text-sm font-medium hover:border-brand-purple/30 dark:hover:border-brand-purple/50 hover:text-brand-purple transition-all duration-300">
-                    {skill}
-                  </span>
-                ))}
+            {/* Split Reveal Animation Wrapper */}
+            <div className="relative group">
+              <motion.div 
+                whileHover={{ rotateY: 10, rotateX: -5, scale: 1.02 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+                className="relative z-10 rounded-[3.5rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.15)] dark:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.4)] perspective-1000"
+              >
+                <img 
+                  src={aboutImg} 
+                  alt="Isti - Moment naturel" 
+                  className="w-full h-auto object-cover transition-transform duration-1000 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-purple/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              </motion.div>
+              
+              {/* Decorative Frame */}
+              <div className="absolute -top-6 -left-6 w-full h-full border-2 border-brand-purple/10 rounded-[3.5rem] -z-10 group-hover:top-0 group-hover:left-0 transition-all duration-700" />
+              
+              {/* Floating Caption */}
+              <div className="absolute -bottom-8 left-12 bg-white dark:bg-brand-dark px-8 py-4 rounded-2xl shadow-2xl border border-slate-50 dark:border-white/10 hidden md:block z-20">
+                <p className="text-sm italic font-medium text-slate-500">"L'authenticité est le socle de toute stratégie."</p>
               </div>
             </div>
           </motion.div>
+
+          {/* Storytelling Content Side */}
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full lg:w-1/2"
+          >
+            <div className="inline-block px-4 py-2 bg-brand-purple/5 rounded-full mb-8">
+              <span className="text-brand-purple font-black tracking-[0.3em] uppercase text-[10px]">L'Âme derrière le métier</span>
+            </div>
+            
+            <h2 className="text-6xl md:text-8xl mb-12 leading-[0.9] font-black tracking-tighter dark:text-white">
+              CULTIVER <br />
+              <span className="text-brand-purple italic">L'ENGAGEMENT.</span>
+            </h2>
+            
+            <div className="space-y-8 text-slate-500 dark:text-slate-400 text-xl md:text-2xl leading-relaxed mb-16 font-light">
+              <p>
+                Ma mission est simple : transformer des présences numériques en véritables histoires qui résonnent.
+              </p>
+              <p className="font-medium text-slate-800 dark:text-slate-200">
+                Spécialisée dans l'accompagnement des marques créatrices et des entrepreneurs audacieux, j'allie rigueur analytique et sensibilité esthétique pour élever chaque prise de parole.
+              </p>
+            </div>
+
+            {/* Micro-Interaction Skills Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {skills.map((skill, index) => (
+                <motion.div
+                  key={skill}
+                  whileHover={{ y: -5, backgroundColor: '#8b5cf6', color: '#fff' }}
+                  className="px-4 py-4 bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/5 rounded-2xl text-[10px] font-black tracking-widest uppercase flex items-center justify-center text-center cursor-default transition-all duration-300"
+                >
+                  {skill}
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

@@ -1,107 +1,121 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MdOutlineSend, MdOutlineEmail, MdOutlineLocationOn } from 'react-icons/md';
+import { MdOutlineSend, MdOutlineEmail, MdOutlineLocationOn, MdOutlineChatBubbleOutline } from 'react-icons/md';
+import contactImg from '../assets/images/profile.png';
 
 const ContactForm = () => {
   return (
-    <section id="contact" className="py-24 bg-brand-dark text-white relative overflow-hidden">
-      {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-purple/10 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+    <section id="contact" className="py-40 bg-brand-light dark:bg-brand-dark transition-colors duration-500 relative overflow-hidden">
+      {/* Soft Ambient Decor */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-purple/5 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Info Side */}
-          <div>
-            <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-5xl lg:text-6xl mb-8 leading-tight font-display"
-            >
-              Envie de donner vie à <span className="text-brand-purple">vos idées ?</span>
-            </motion.h2>
-            <p className="text-slate-400 text-lg mb-12 max-w-md leading-relaxed">
-              Que ce soit pour une nouvelle identité visuelle ou une stratégie sociale complète, parlons-en autour d'un café (virtuel).
-            </p>
-
-            <div className="space-y-6">
-              <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-white/5 group-hover:bg-brand-purple/20 border border-white/10 group-hover:border-brand-purple/30 rounded-2xl flex items-center justify-center text-xl text-brand-purple transition-all">
-                  <MdOutlineEmail />
-                </div>
-                <div>
-                  <p className="text-sm text-slate-500 uppercase tracking-widest font-bold">Email</p>
-                  <p className="text-lg">hello@isti-creative.com</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 group">
-                <div className="w-12 h-12 bg-white/5 group-hover:bg-brand-purple/20 border border-white/10 group-hover:border-brand-purple/30 rounded-2xl flex items-center justify-center text-xl text-brand-purple transition-all">
-                  <MdOutlineLocationOn />
-                </div>
-                <div>
-                  <p className="text-sm text-slate-500 uppercase tracking-widest font-bold">Localisation</p>
-                  <p className="text-lg">Lyon & Remote</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Form Side */}
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-24">
+          
+          {/* Professional Image Side (Serious/Clean) */}
           <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 md:p-12 rounded-[40px] shadow-2xl"
+            className="w-full lg:w-2/5"
           >
-            <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-400 ml-1">Nom Complet</label>
-                  <input 
-                    type="text" 
-                    placeholder="Jane Doe"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-purple transition-colors placeholder:text-slate-600"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-slate-400 ml-1">Email</label>
-                  <input 
-                    type="email" 
-                    placeholder="jane@email.com"
-                    className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-purple transition-colors placeholder:text-slate-600"
-                  />
-                </div>
+            <div className="relative group">
+              <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 dark:border-white/5">
+                <img 
+                  src={contactImg} 
+                  alt="Isti - Contact professionnel" 
+                  className="w-full h-auto grayscale transition-all duration-700 group-hover:grayscale-0"
+                />
               </div>
+              {/* Abstract element behind */}
+              <div className="absolute top-12 -right-12 w-full h-full bg-brand-purple/5 rounded-[3rem] -z-10 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-700" />
+              
+              {/* Interaction Callout */}
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                className="absolute -bottom-6 -right-6 bg-brand-purple p-6 rounded-2xl shadow-2xl text-white z-20 cursor-default"
+              >
+                <MdOutlineChatBubbleOutline size={32} />
+              </motion.div>
+            </div>
+          </motion.div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-400 ml-1">Type de Projet</label>
-                <div className="relative">
-                  <select className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-purple transition-colors appearance-none cursor-pointer">
-                    <option className="bg-brand-dark text-white">Social Media Branding</option>
-                    <option className="bg-brand-dark text-white">Full Visual Identity</option>
-                    <option className="bg-brand-dark text-white">Content Creation</option>
-                  </select>
-                  <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-slate-500">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+          {/* Clean Form Side */}
+          <div className="w-full lg:w-3/5">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-block px-4 py-2 bg-brand-purple/5 rounded-full mb-8">
+                <span className="text-brand-purple font-black tracking-[0.3em] uppercase text-[10px]">Contact direct</span>
+              </div>
+              
+              <h2 className="text-6xl md:text-8xl mb-12 leading-[0.9] font-black tracking-tighter dark:text-white">
+                VOTRE PROJET <br />
+                <span className="text-brand-purple italic">COMMENCE ICI.</span>
+              </h2>
+
+              <div className="grid md:grid-cols-2 gap-12 mb-16">
+                <div className="flex items-center gap-6">
+                  <div className="w-14 h-14 bg-white dark:bg-white/5 shadow-xl rounded-2xl flex items-center justify-center text-2xl text-brand-purple border border-slate-50 dark:border-white/10">
+                    <MdOutlineEmail />
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-slate-400 uppercase tracking-widest font-black mb-1">Email</p>
+                    <p className="text-lg font-bold dark:text-white">hello@isti.pro</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-6">
+                  <div className="w-14 h-14 bg-white dark:bg-white/5 shadow-xl rounded-2xl flex items-center justify-center text-2xl text-brand-purple border border-slate-50 dark:border-white/10">
+                    <MdOutlineLocationOn />
+                  </div>
+                  <div>
+                    <p className="text-[10px] text-slate-400 uppercase tracking-widest font-black mb-1">Localisation</p>
+                    <p className="text-lg font-bold dark:text-white">Remote & Lyon</p>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label className="text-sm font-medium text-slate-400 ml-1">Message</label>
-                <textarea 
-                  rows="4"
-                  placeholder="Dites-moi tout sur votre projet..."
-                  className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 focus:outline-none focus:border-brand-purple transition-colors resize-none placeholder:text-slate-600"
-                ></textarea>
-              </div>
+              <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
+                <div className="grid md:grid-cols-2 gap-10">
+                  <div className="group relative">
+                    <input 
+                      type="text" 
+                      placeholder="Nom complet"
+                      className="w-full bg-transparent border-b-2 border-slate-100 dark:border-white/10 py-5 focus:outline-none focus:border-brand-purple transition-all placeholder:text-slate-300 text-xl font-medium"
+                    />
+                    <div className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-brand-purple group-focus-within:w-full transition-all duration-700" />
+                  </div>
+                  <div className="group relative">
+                    <input 
+                      type="email" 
+                      placeholder="Adresse email"
+                      className="w-full bg-transparent border-b-2 border-slate-100 dark:border-white/10 py-5 focus:outline-none focus:border-brand-purple transition-all placeholder:text-slate-300 text-xl font-medium"
+                    />
+                    <div className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-brand-purple group-focus-within:w-full transition-all duration-700" />
+                  </div>
+                </div>
+                <div className="group relative">
+                  <textarea 
+                    rows="4"
+                    placeholder="Détails du projet..."
+                    className="w-full bg-transparent border-b-2 border-slate-100 dark:border-white/10 py-5 focus:outline-none focus:border-brand-purple transition-all placeholder:text-slate-300 text-xl font-medium resize-none"
+                  ></textarea>
+                  <div className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-brand-purple group-focus-within:w-full transition-all duration-700" />
+                </div>
 
-              <button className="w-full btn-primary !py-5 flex items-center justify-center gap-3 text-lg font-bold group">
-                Envoyer le message 
-                <MdOutlineSend className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </button>
-            </form>
-          </motion.div>
+                <motion.button 
+                  whileHover={{ scale: 1.02, boxShadow: '0 20px 40px -10px rgba(139, 92, 246, 0.5)' }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full bg-brand-purple py-7 rounded-3xl flex items-center justify-center gap-4 text-xl font-black uppercase tracking-[0.2em] text-white shadow-2xl transition-all shadow-brand-purple/20"
+                >
+                  Envoyer le message
+                  <MdOutlineSend />
+                </motion.button>
+              </form>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

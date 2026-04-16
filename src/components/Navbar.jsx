@@ -16,9 +16,8 @@ const Navbar = ({ darkMode, toggleDarkMode }) => {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'glass-effect pt-4 pb-4' : 'bg-transparent pt-6 pb-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-2xl font-display font-bold text-brand-purple tracking-tighter dark:text-white">
-          ISTI<span className="text-brand-coral">.</span>
+        <div className="flex items-center">
+          <img src="/logo_transparent.png" alt="ISTI Logo" className="h-10 w-auto dark:invert transition-all" />
         </div>
 
         {/* Desktop Menu */}

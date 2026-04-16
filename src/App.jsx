@@ -9,6 +9,7 @@ import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 
 function App() {
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [darkMode, setDarkMode] = useState(() => {
     const saved = localStorage.getItem('theme');
     return saved === 'dark';
@@ -24,10 +25,26 @@ function App() {
     }
   }, [darkMode]);
 
+  useEffect(() => {
+    const handleMouseMove = (e) => setMousePos({ x: e.clientX, y: e.clientY });
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   const toggleDarkMode = () => setDarkMode(!darkMode);
 
   return (
     <main className="antialiased text-slate-900 dark:text-slate-100 overflow-x-hidden min-h-screen transition-colors duration-300">
+      {/* Custom Cursor */}
+      <motion.div
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border border-brand-purple pointer-events-none z-[9999] hidden lg:block"
+        animate={{
+          x: mousePos.x - 16,
+          y: mousePos.y - 16,
+        }}
+        transition={{ type: 'spring', damping: 30, stiffness: 200, mass: 0.5 }}
+      />
+      
       <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       <Hero />
       <Services />
