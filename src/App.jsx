@@ -11,10 +11,7 @@ import Footer from './components/Footer';
 import GlobalBackground from './components/GlobalBackground';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    return saved === 'dark'; // Still respects saved preference, but default is light if not set
-  });
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     if (darkMode) {
