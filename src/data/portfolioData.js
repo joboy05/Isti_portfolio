@@ -1,51 +1,49 @@
+import project1 from '../assets/images/project1.png';
+import project2 from '../assets/images/project2.png';
+import project3 from '../assets/images/project3.png';
+import project4 from '../assets/images/project4.png';
+import project5 from '../assets/images/project5.png';
+
 export const projects = [
   {
     id: 1,
-    title: "Identité Visuelle - Café Luna",
+    title: "Branding — Doris Cake",
     category: "Miniatures/Affiches",
-    image: "/assets/images/project1.webp",
-    description: "Création du logo et de la charte graphique complète pour une nouvelle boutique de café artisanal.",
-    tags: ["Logo", "Branding", "Illustrator"]
+    image: project1,
+    description: "Identité visuelle et supports de communication pour une pâtisserie artisanale haut de gamme.",
+    tags: ["Branding", "Print", "Logo"]
   },
   {
     id: 2,
-    title: "Gestion Instagram - Startup Tech",
-    category: "Social Media",
-    image: "/assets/images/project2.webp",
-    description: "Stratégie de contenu et community management pour une startup SaaS en pleine croissance.",
-    tags: ["Stratégie", "Reels", "Community Management"]
+    title: "Affiche Événementielle — UENP",
+    category: "Miniatures/Affiches",
+    image: project2,
+    description: "Conception graphique pour la soirée culturelle de l'Union des Élèves et Étudiants Nigériens à Parakou.",
+    tags: ["Poster Art", "Culture", "Design"]
   },
   {
     id: 3,
-    title: "Miniatures YouTube - Chaîne DIY",
-    category: "Miniatures/Affiches",
-    image: "/assets/images/project3.webp",
-    description: "Design de miniatures performantes pour augmenter le taux de clic sur une chaîne YouTube de 500k abonnés.",
-    tags: ["YouTube", "Social Design", "Photoshop"]
+    title: "Marketing — Ogebest Kitchen",
+    category: "Social Media",
+    image: project3,
+    description: "Stratégie visuelle et promotionnelle pour un service de restauration et traiteur digital.",
+    tags: ["Digital Ads", "Food", "Marketing"]
   },
   {
     id: 4,
-    title: "Campagne TikTok - Mode Éco",
+    title: "Contenu Créatif — Monday Motivation",
     category: "Social Media",
-    image: "/assets/images/project4.webp",
-    description: "Production de vidéos virales et gestion de campagne pour une marque de vêtements éthiques.",
-    tags: ["Vidéo", "TikTok", "UGC"]
+    image: project4,
+    description: "Série de visuels inspirants pour booster l'engagement hebdomadaire sur les réseaux sociaux.",
+    tags: ["Engagement", "Copywriting", "Visuals"]
   },
   {
     id: 5,
-    title: "Branding - Studio Architecture",
+    title: "Identité — Arc.Form Architecture",
     category: "Miniatures/Affiches",
-    image: "/assets/images/project5.webp",
-    description: "Identité minimaliste et site web vitrine pour un cabinet d'architecture d'intérieur.",
-    tags: ["Branding", "Minimal", "InDesign"]
-  },
-  {
-    id: 6,
-    title: "Editorial - Magazine Digital",
-    category: "Miniatures/Affiches",
-    image: "/assets/images/project6.webp",
-    description: "Création de visuels pour les articles de fond d'un magazine de design contemporain.",
-    tags: ["Editorial", "Affiche", "Digital Art"]
+    image: project5,
+    description: "Direction artistique et branding minimaliste pour un cabinet d'architecture moderne.",
+    tags: ["Architecture", "Minimal", "Stationery"]
   }
 ];
 

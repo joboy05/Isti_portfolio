@@ -1,122 +1,121 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MdOutlineSend, MdOutlineEmail, MdOutlineLocationOn, MdOutlineChatBubbleOutline } from 'react-icons/md';
-import contactImg from '../assets/images/profile.png';
+import { MdOutlineSend, MdOutlineEmail, MdOutlineLocationOn, MdCall } from 'react-icons/md';
+import TextReveal from './TextReveal';
 
 const ContactForm = () => {
   return (
-    <section id="contact" className="py-40 bg-brand-light dark:bg-brand-dark transition-colors duration-500 relative overflow-hidden">
-      {/* Soft Ambient Decor */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-purple/5 rounded-full blur-[120px] pointer-events-none" />
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-24">
-          
-          {/* Professional Image Side (Serious/Clean) */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="w-full lg:w-2/5"
-          >
-            <div className="relative group">
-              <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 dark:border-white/5">
-                <img 
-                  src={contactImg} 
-                  alt="Isti - Contact professionnel" 
-                  className="w-full h-auto grayscale transition-all duration-700 group-hover:grayscale-0"
-                />
-              </div>
-              {/* Abstract element behind */}
-              <div className="absolute top-12 -right-12 w-full h-full bg-brand-purple/5 rounded-[3rem] -z-10 group-hover:translate-x-4 group-hover:-translate-y-4 transition-transform duration-700" />
-              
-              {/* Interaction Callout */}
-              <motion.div 
-                whileHover={{ scale: 1.05 }}
-                className="absolute -bottom-6 -right-6 bg-brand-purple p-6 rounded-2xl shadow-2xl text-white z-20 cursor-default"
-              >
-                <MdOutlineChatBubbleOutline size={32} />
-              </motion.div>
-            </div>
-          </motion.div>
+    <section id="contact" className="py-32 bg-brand-light dark:bg-brand-dark transition-colors duration-1000 relative">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
+        
+        {/* Section Header */}
+        <div className="mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div className="max-w-2xl">
+            <span className="text-brand-purple dark:text-brand-purple-light font-black tracking-[0.4em] uppercase text-[10px] mb-6 block">Contact — Collaboration</span>
+            <TextReveal 
+              text="Travaillons ensemble sur votre prochain projet."
+              className="text-6xl md:text-7xl lg:text-8xl font-black dark:text-white tracking-tighter leading-[0.85]"
+            />
+          </div>
+          <div className="w-20 h-1 bg-brand-purple/20 rounded-full mb-4 hidden md:block" />
+        </div>
 
-          {/* Clean Form Side */}
-          <div className="w-full lg:w-3/5">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="inline-block px-4 py-2 bg-brand-purple/5 rounded-full mb-8">
-                <span className="text-brand-purple font-black tracking-[0.3em] uppercase text-[10px]">Contact direct</span>
-              </div>
-              
-              <h2 className="text-6xl md:text-8xl mb-12 leading-[0.9] font-black tracking-tighter dark:text-white">
-                VOTRE PROJET <br />
-                <span className="text-brand-purple italic">COMMENCE ICI.</span>
-              </h2>
+        {/* Card Layout (Inspired by reference) */}
+        <motion.div 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-7xl mx-auto rounded-[3.5rem] overflow-hidden shadow-2xl dark:shadow-glow flex flex-col lg:flex-row border border-slate-100 dark:border-white/5 bg-white dark:bg-brand-surface"
+        >
+          {/* Left Section: Contact Info */}
+          <div className="lg:w-1/3 bg-brand-purple text-white p-12 md:p-16 relative overflow-hidden flex flex-col justify-center">
+            {/* Decorative circles */}
+            <div className="absolute -bottom-24 -right-24 w-80 h-80 bg-white/10 rounded-full blur-3xl" />
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-brand-purple-light/20 rounded-full blur-2xl" />
 
-              <div className="grid md:grid-cols-2 gap-12 mb-16">
+            <div className="relative z-10">
+              <h3 className="text-3xl md:text-4xl font-black mb-4 tracking-tight">Informations de Contact</h3>
+              <p className="text-white/80 text-lg mb-10 max-w-lg font-light">
+                N'hésitez pas à me contacter pour des collaborations ou simplement pour dire bonjour !
+              </p>
+
+              <div className="space-y-6">
                 <div className="flex items-center gap-6">
-                  <div className="w-14 h-14 bg-white dark:bg-white/5 shadow-xl rounded-2xl flex items-center justify-center text-2xl text-brand-purple border border-slate-50 dark:border-white/10">
+                  <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xl backdrop-blur-sm">
+                    <MdCall />
+                  </div>
+                  <p className="text-lg font-medium">+229 95 64 32 71</p>
+                </div>
+                
+                <div className="flex items-center gap-6">
+                  <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xl backdrop-blur-sm">
                     <MdOutlineEmail />
                   </div>
-                  <div>
-                    <p className="text-[10px] text-slate-400 uppercase tracking-widest font-black mb-1">Email</p>
-                    <p className="text-lg font-bold dark:text-white">hello@isti.pro</p>
-                  </div>
+                  <p className="text-lg font-medium">istidjabatouy@gmail.com</p>
                 </div>
+
                 <div className="flex items-center gap-6">
-                  <div className="w-14 h-14 bg-white dark:bg-white/5 shadow-xl rounded-2xl flex items-center justify-center text-2xl text-brand-purple border border-slate-50 dark:border-white/10">
+                  <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-xl backdrop-blur-sm">
                     <MdOutlineLocationOn />
                   </div>
-                  <div>
-                    <p className="text-[10px] text-slate-400 uppercase tracking-widest font-black mb-1">Localisation</p>
-                    <p className="text-lg font-bold dark:text-white">Remote & Lyon</p>
-                  </div>
+                  <p className="text-lg font-medium">Remote / International</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Section: Form */}
+          <div className="lg:w-2/3 p-12 md:p-16">
+            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+              <div className="grid md:grid-cols-2 gap-8">
+                {/* Form Group: Name */}
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-semibold text-slate-700 dark:text-gray-300">Nom Complet</label>
+                  <input 
+                    type="text" 
+                    placeholder="Votre nom"
+                    className="w-full bg-slate-50 dark:bg-[#15151D] border border-slate-200 dark:border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-brand-purple/50 transition-all text-slate-800 dark:text-white placeholder:text-slate-400"
+                  />
+                </div>
+                
+                {/* Form Group: Email */}
+                <div className="flex flex-col gap-2">
+                  <label className="text-sm font-semibold text-slate-700 dark:text-gray-300">Adresse E-mail</label>
+                  <input 
+                    type="email" 
+                    placeholder="Votre adresse e-mail"
+                    className="w-full bg-slate-50 dark:bg-[#15151D] border border-slate-200 dark:border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-brand-purple/50 transition-all text-slate-800 dark:text-white placeholder:text-slate-400"
+                  />
                 </div>
               </div>
 
-              <form className="space-y-10" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid md:grid-cols-2 gap-10">
-                  <div className="group relative">
-                    <input 
-                      type="text" 
-                      placeholder="Nom complet"
-                      className="w-full bg-transparent border-b-2 border-slate-100 dark:border-white/10 py-5 focus:outline-none focus:border-brand-purple transition-all placeholder:text-slate-300 text-xl font-medium"
-                    />
-                    <div className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-brand-purple group-focus-within:w-full transition-all duration-700" />
-                  </div>
-                  <div className="group relative">
-                    <input 
-                      type="email" 
-                      placeholder="Adresse email"
-                      className="w-full bg-transparent border-b-2 border-slate-100 dark:border-white/10 py-5 focus:outline-none focus:border-brand-purple transition-all placeholder:text-slate-300 text-xl font-medium"
-                    />
-                    <div className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-brand-purple group-focus-within:w-full transition-all duration-700" />
-                  </div>
-                </div>
-                <div className="group relative">
-                  <textarea 
-                    rows="4"
-                    placeholder="Détails du projet..."
-                    className="w-full bg-transparent border-b-2 border-slate-100 dark:border-white/10 py-5 focus:outline-none focus:border-brand-purple transition-all placeholder:text-slate-300 text-xl font-medium resize-none"
-                  ></textarea>
-                  <div className="absolute bottom-[-2px] left-0 w-0 h-[2px] bg-brand-purple group-focus-within:w-full transition-all duration-700" />
-                </div>
+              {/* Form Group: Message */}
+              <div className="flex flex-col gap-2">
+                <label className="text-sm font-semibold text-slate-700 dark:text-gray-300">Parlez-moi de votre projet</label>
+                <textarea 
+                  rows="5"
+                  placeholder="Écrivez votre message ici..."
+                  className="w-full bg-slate-50 dark:bg-[#15151D] border border-slate-200 dark:border-white/10 rounded-xl px-5 py-4 focus:outline-none focus:ring-2 focus:ring-brand-purple/50 transition-all text-slate-800 dark:text-white placeholder:text-slate-400 resize-none"
+                ></textarea>
+              </div>
 
-                <motion.button 
-                  whileHover={{ scale: 1.02, boxShadow: '0 20px 40px -10px rgba(139, 92, 246, 0.5)' }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full bg-brand-purple py-7 rounded-3xl flex items-center justify-center gap-4 text-xl font-black uppercase tracking-[0.2em] text-white shadow-2xl transition-all shadow-brand-purple/20"
-                >
-                  Envoyer le message
-                  <MdOutlineSend />
-                </motion.button>
-              </form>
-            </motion.div>
+              {/* Submit Button mapping to WhatsApp */}
+              <motion.a 
+                href="https://wa.me/22995643271?text=Bonjour%20Istidjabatou%2C%20je%20vous%20contacte%20depuis%20votre%20portfolio%20!"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center gap-3 bg-brand-purple hover:bg-brand-purple/90 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-brand-purple/30 transition-colors w-full md:w-auto mt-4"
+              >
+                Envoyer le message
+                <MdOutlineSend className="text-xl" />
+              </motion.a>
+            </form>
           </div>
-        </div>
+        </motion.div>
+
       </div>
     </section>
   );
